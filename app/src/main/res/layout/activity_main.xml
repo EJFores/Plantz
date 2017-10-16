@@ -4,25 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.jack_inbox.plantz.MainActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/LeLabel"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    tools:context="com.example.jack_inbox.plantz.MainActivity"
+    android:background="@drawable/flower">
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/runTests"
-        android:text="Run Tests"
+        android:id="@+id/runtest"
+        android:layout_width="121dp"
+        android:layout_height="71dp"
+        android:background="@android:color/transparent"
+        android:text="Run Test"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/credit"
+        app:layout_constraintHorizontal_bias="0.74"
+        app:layout_constraintLeft_toRightOf="@+id/api"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.85" />
+
+    <Button
+        android:id="@+id/api"
+        android:layout_width="123dp"
+        android:layout_height="49dp"
+        android:background="@android:color/transparent"
+        android:text="API"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="30sp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LeLabel" />
+        app:layout_constraintHorizontal_bias="0.13"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7" />
+
+    <Button
+        android:layout_width="209dp"
+        android:layout_height="48dp"
+        android:background="@android:color/transparent"
+        android:text="Credit"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/api"
+        app:layout_constraintVertical_bias="0.57"
+        android:id="@+id/credit" />
 
 </android.support.constraint.ConstraintLayout>
