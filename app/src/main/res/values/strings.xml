@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Plantz</string>
+    <string name="nicholas_pilkington">Nicholas Pilkington</string>
+    <string name="gregory_evans">Gregory Evans</string>
+    <string name="manuel_bolanos">Manuel Bolanos</string>
+    <string name="ist_422_mobile_programming">IST-422-Mobile Programming</string>
+    <string name="app_developers">App Developers:</string>
+    <string name="ethan_flores">Ethan Flores</string>
 </resources>

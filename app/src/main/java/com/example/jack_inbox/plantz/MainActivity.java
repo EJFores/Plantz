@@ -25,5 +25,17 @@ public class MainActivity extends AppCompatActivity
                 startActivity(new Intent(MainActivity.this, MainTesting.class));
             }
         });
+
+        final Button buttoncredits = (Button) findViewById(R.id.credit);
+        buttoncredits.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                startActivity(new Intent(MainActivity.this, CreditsActivity.class));
+            }
+        });
+
+
     }
 }
