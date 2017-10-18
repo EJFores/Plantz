@@ -4,33 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
-    tools:context="com.example.jack_inbox.plantz.MainTesting">
+    tools:context="com.example.jack_inbox.plantz.MainTesting"
+    android:baselineAligned="false"
+    android:orientation="vertical"
+    android:weightSum="1">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/test1"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
+    <fragment
+        android:id="@+id/plantTest"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray"/>
-
-    <TextView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/test2"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout="@layout/activity_apilook"
+        android:layout_weight="0.19" />
+
+    <fragment
+        android:id="@+id/weather"
+        android:name="android.support.v7.app.AppCompatDialogFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.22"
+        tools:layout="@layout/activity_weather" />
+
+    <fragment
+        android:id="@+id/maps"
+        android:name="android.support.v7.app.AppCompatDialogFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.30"
+        tools:layout="@layout/activity_maps" />
+
+    <fragment
+        android:id="@+id/lightSensor"
+        android:name="android.support.v7.app.AppCompatDialogFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.18"
+        tools:layout="@layout/activity_lights" />
+
+    <fragment
+        android:id="@+id/Dates"
+        android:name="android.support.v7.app.AppCompatDialogFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.13"
+        tools:layout="@layout/activity_date" />
 
 </LinearLayout>

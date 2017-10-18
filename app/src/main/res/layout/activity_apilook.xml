@@ -9,10 +9,10 @@
     tools:context="com.example.jack_inbox.plantz.APILookupActivity">
 
     <TextView
+        android:id="@+id/test1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/test1"
-        android:text="Hello World!"
+        android:text="Plant/Testing"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
