@@ -14,8 +14,8 @@
         android:id="@+id/plantTest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:layout="@layout/activity_apilook"
-        android:layout_weight="0.19" />
+        android:layout_weight="0.19"
+        tools:layout="@layout/activity_runtest" />
 
     <fragment
         android:id="@+id/weather"
@@ -30,7 +30,7 @@
         android:name="android.support.v7.app.AppCompatDialogFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.30"
+        android:layout_weight="0.46"
         tools:layout="@layout/activity_maps" />
 
     <fragment
@@ -38,7 +38,7 @@
         android:name="android.support.v7.app.AppCompatDialogFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.18"
+        android:layout_weight="0.03"
         tools:layout="@layout/activity_lights" />
 
     <fragment
@@ -46,7 +46,6 @@
         android:name="android.support.v7.app.AppCompatDialogFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.13"
         tools:layout="@layout/activity_date" />
 
 </LinearLayout>
