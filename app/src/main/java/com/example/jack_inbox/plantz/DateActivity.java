@@ -10,4 +10,4 @@ public class DateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_date);
     }
-}
+}//cool

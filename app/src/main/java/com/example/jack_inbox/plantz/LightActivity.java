@@ -10,4 +10,4 @@ public class LightActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lights);
     }
-}
+}//cool
