@@ -10,16 +10,17 @@
     android:orientation="vertical"
     android:weightSum="1">
 
-    <fragment
+     <fragment
         android:id="@+id/plantTest"
+         android:name="com.example.jack_inbox.plantz.PlantTestActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.19"
+        android:layout_weight="0.16"
         tools:layout="@layout/activity_runtest" />
 
     <fragment
         android:id="@+id/weather"
-        android:name="android.support.v7.app.AppCompatDialogFragment"
+        android:name="com.example.jack_inbox.plantz.WeatherActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.22"
@@ -27,7 +28,7 @@
 
     <fragment
         android:id="@+id/maps"
-        android:name="android.support.v7.app.AppCompatDialogFragment"
+        android:name="com.example.jack_inbox.plantz.MapsActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.34"
@@ -35,20 +36,20 @@
 
     <fragment
         android:id="@+id/lightSensor"
-        android:name="android.support.v7.app.AppCompatDialogFragment"
+        android:name="com.example.jack_inbox.plantz.LightActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.03"
+        android:layout_weight="0.30"
         tools:layout="@layout/activity_lights" />
 
     <fragment
         android:id="@+id/Dates"
-        android:name="android.support.v7.app.AppCompatDialogFragment"
+        android:name="com.example.jack_inbox.plantz.DateActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:layout="@layout/activity_date" />
 
 
-    //cool
+
 
 </LinearLayout>
