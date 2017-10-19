@@ -30,7 +30,7 @@
         android:name="android.support.v7.app.AppCompatDialogFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.46"
+        android:layout_weight="0.34"
         tools:layout="@layout/activity_maps" />
 
     <fragment
