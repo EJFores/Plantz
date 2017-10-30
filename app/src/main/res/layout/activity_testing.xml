@@ -23,7 +23,7 @@
         android:name="com.example.jack_inbox.plantz.WeatherActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.22"
+        android:layout_weight="0.23"
         tools:layout="@layout/activity_weather" />
 
     <fragment
