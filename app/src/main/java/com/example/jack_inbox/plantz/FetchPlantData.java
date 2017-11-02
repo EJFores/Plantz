@@ -25,7 +25,7 @@ public class FetchPlantData extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... voids) {
         try {
-            URL url = new URL("https://data.cityofchicago.org/api/views/i8y3-ytj4/rows.json?accessType=DOWNLOAD");
+            URL url = new URL("https://plantsdb.xyz/search?fields=Genus");
 
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
