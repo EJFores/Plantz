@@ -1,6 +1,7 @@
 package com.example.jack_inbox.plantz;
 
 import android.app.Activity;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -9,73 +10,75 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
 
 public class DateActivity extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater,
-                                ViewGroup container, Bundle savedInstanceState) {
-       return inflater.inflate(
-               R.layout.activity_date, container, false);
+                             ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(
+                R.layout.activity_date, container, false);
     }
-
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        Log.d("Fragment 1", "onAttach");
+        Log.d("Fragment 4", "onAttach");
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("Fragment 1", "onCreate");
+        Log.d("Fragment 4", "onCreate");
     }
+
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Log.d("Fragment 1", "onActivityCreated");
+        Log.d("Fragment 4", "onActivityCreated");
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        Log.d("Fragment 1", "onStart");
+        Log.d("Fragment 4", "onStart");
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        Log.d("Fragment 1", "onResume");
+        Log.d("Fragment 4", "onResume");
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        Log.d("Fragment 1", "onPause");
+        Log.d("Fragment 4", "onPause");
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        Log.d("Fragment 1", "onStop");
+        Log.d("Fragment 4", "onStop");
 
     }
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        Log.d("Fragment 1", "onDestroyView");
+        Log.d("Fragment 4", "onDestroyView");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d("Fragment 1", "onDestroy");
+        Log.d("Fragment 4", "onDestroy");
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        Log.d("Fragment 1", "onDetach");
+        Log.d("Fragment 4", "onDetach");
     }
+
 }
