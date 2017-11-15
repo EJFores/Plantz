@@ -21,7 +21,7 @@
 
         <fragment
             android:id="@+id/weather"
-            android:name="com.example.jack_inbox.plantz.WeatherActivity"
+            android:name="com.example.jack_inbox.plantz.WeatherFr.WeatherActivity"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_alignParentLeft="true"
