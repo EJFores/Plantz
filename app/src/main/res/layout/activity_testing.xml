@@ -30,14 +30,16 @@
             android:layout_marginTop="23dp"
             tools:layout="@layout/activity_weather" />
 
-        <!-- <fragment
-        android:id="@+id/map"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.example.jack_inbox.plantz.MapsActivity"
-             android:layout_centerVertical="true"
-             android:layout_alignParentLeft="true"
-             android:layout_alignParentStart="true" />-->
+       <!-- <fragment
+            android:id="@+id/Mapszs"
+            android:name="com.example.jack_inbox.plantz.MapsActivity"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            tools:layout="@layout/activity_maps"
+            android:layout_marginTop="140dp"
+            android:layout_below="@+id/weather"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" /> -->
 
         <fragment
             android:id="@+id/lightSensor"
