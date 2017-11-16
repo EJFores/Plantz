@@ -1,55 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    tools:context="com.example.jack_inbox.plantz.MainTesting"
     android:orientation="vertical"
-    android:fillViewport="false">
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    android:weightSum="1">
+    <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:gravity="center"
-        tools:context="com.example.jack_inbox.plantz.MainTesting"
-        android:baselineAligned="false"
-        android:orientation="vertical"
-        android:weightSum="1">
+        android:layout_height="fill_parent">
 
-         <fragment
+        <fragment
             android:id="@+id/plantTest"
-             android:name="com.example.jack_inbox.plantz.PlantTestActivity"
+            android:name="com.example.jack_inbox.plantz.PlantTestActivity"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             tools:layout="@layout/activity_runtest" />
 
         <fragment
             android:id="@+id/weather"
-            android:name="com.example.jack_inbox.plantz.WeatherActivity"
+            android:name="com.example.jack_inbox.plantz.WeatherFr.WeatherActivity"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/plantTest"
+            android:layout_marginTop="23dp"
             tools:layout="@layout/activity_weather" />
 
-        <fragment
-            android:id="@+id/maps"
-            android:name="com.example.jack_inbox.plantz.MapsActivity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:layout="@layout/activity_maps" />
+        <!-- <fragment
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.jack_inbox.plantz.MapsActivity"
+             android:layout_centerVertical="true"
+             android:layout_alignParentLeft="true"
+             android:layout_alignParentStart="true" />-->
 
         <fragment
             android:id="@+id/lightSensor"
             android:name="com.example.jack_inbox.plantz.LightActivity"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:layout="@layout/activity_lights" />
+            android:layout_height="100dp"
+            tools:layout="@layout/activity_lights"
+            android:layout_marginTop="140dp"
+            android:layout_below="@+id/weather"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
-        <fragment
-            android:id="@+id/Dates"
-            android:name="com.example.jack_inbox.plantz.DateActivity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:layout="@layout/activity_date" />
-
-    </LinearLayout>
- </ScrollView>
+    <fragment
+        android:id="@+id/Dates"
+        android:name="com.example.jack_inbox.plantz.DateActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.24"
+        tools:layout="@layout/activity_date"
+        android:layout_below="@+id/lightSensor"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    </RelativeLayout>
+</ScrollView>
 

@@ -1,15 +1,26 @@
-package com.example.jack_inbox.plantz;
+package com.example.jack_inbox.plantz.WeatherFr;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.example.jack_inbox.plantz.R;
 
 public class WeatherActivity extends Fragment {
+    public static String city;
+    public static String st;
+
+    Button click;
+    public static TextView data;
+    public static EditText cityinput;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -17,7 +28,6 @@ public class WeatherActivity extends Fragment {
         return inflater.inflate(
                 R.layout.activity_weather, container, false);
     }
-
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -77,4 +87,4 @@ public class WeatherActivity extends Fragment {
         super.onDetach();
         Log.d("Fragment 6", "onDetach");
     }
-}//cool
+}

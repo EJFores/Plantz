@@ -1,15 +1,15 @@
 package com.example.jack_inbox.plantz;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.app.Fragment;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
+//import com.google.android.gms.maps.
 
-public class MapsActivity extends Fragment {
+public class MapsActivity extends Fragment
+{
 
     @Override
     public View onCreateView(LayoutInflater inflater,
