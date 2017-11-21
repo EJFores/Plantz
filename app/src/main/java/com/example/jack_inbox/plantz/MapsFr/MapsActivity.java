@@ -1,4 +1,4 @@
-package com.example.jack_inbox.plantz;
+package com.example.jack_inbox.plantz.MapsFr;
 
 import android.app.Activity;
 import android.graphics.Camera;
@@ -8,6 +8,7 @@ import android.app.Fragment;
 import android.util.Log;
 import android.view.*;
 
+import com.example.jack_inbox.plantz.R;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;

@@ -39,9 +39,7 @@
         app:layout_constraintVertical_bias="1.0"
         app:layout_constraintHorizontal_bias="0.971" />
 
-
-
-    <ScrollView
+    <!--<ScrollView
         android:layout_width="500dp"
         android:layout_height="500dp"
         android:layout_below="@id/button"
@@ -54,7 +52,7 @@
             android:textSize="24sp"
             android:id="@+id/fetchdata"
             android:hint="Fetched Text Here!!!"/>
-    </ScrollView>
+    </ScrollView>-->
 
 
 </android.support.constraint.ConstraintLayout>
