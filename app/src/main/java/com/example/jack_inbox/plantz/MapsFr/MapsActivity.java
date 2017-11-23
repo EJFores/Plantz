@@ -31,7 +31,7 @@ public class MapsActivity extends Fragment
     {
         View rootView =  inflater.inflate(R.layout.activity_testing, container, false);
 
-        mMapView = (MapView) rootView.findViewById(R.id.mapView);
+        mMapView = rootView.findViewById(R.id.mapView);
         mMapView.onCreate(savedInstanceState);
         mMapView.onResume();
 

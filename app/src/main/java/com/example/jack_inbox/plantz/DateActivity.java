@@ -25,13 +25,15 @@ public class DateActivity extends Fragment {
     int mYear = c.get(Calendar.YEAR); // current year
     int mMonth = c.get(Calendar.MONTH); // current month
     int mDay = c.get(Calendar.DAY_OF_MONTH); // current day
+
     @Override
     public View onCreateView(LayoutInflater inflater,
-                             @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+                             @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
+    {
         View v = inflater.inflate(R.layout.activity_date,container,false);
 
         // initiate the date picker and a button
-        date = (EditText) v.findViewById(R.id.date);
+        date = v.findViewById(R.id.date);
         // perform click event on edit text
         date.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +57,7 @@ public class DateActivity extends Fragment {
             autoDate.setChecked(false);}});
 
 // For the Switch
-        autoDate = (Switch)v.findViewById(R.id.autoDate);
+        autoDate = v.findViewById(R.id.autoDate);
         autoDate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
