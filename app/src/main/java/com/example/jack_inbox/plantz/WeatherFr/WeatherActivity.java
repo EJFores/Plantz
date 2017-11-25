@@ -1,8 +1,10 @@
 package com.example.jack_inbox.plantz.WeatherFr;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.os.Bundle;
+import android.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +15,9 @@ import android.widget.TextView;
 
 import com.example.jack_inbox.plantz.R;
 
-public class WeatherActivity extends Fragment {
+public class WeatherActivity extends FragmentActivity
+{
+
     public static String city;
     public static String st;
 
@@ -22,28 +26,18 @@ public class WeatherActivity extends Fragment {
     public static EditText cityinput;
 
 
-    @Override
-    public View onCreateView(LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+    public View onCreate(LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState)
+    {
         return inflater.inflate(
                 R.layout.activity_weather, container, false);
     }
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        Log.d("Fragment 6", "onAttach");
-    }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         Log.d("Fragment 6", "onCreate");
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        Log.d("Fragment 6", "onActivityCreated");
     }
 
     @Override
@@ -70,21 +64,10 @@ public class WeatherActivity extends Fragment {
         Log.d("Fragment 6", "onStop");
 
     }
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        Log.d("Fragment 6", "onDestroyView");
-    }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
         Log.d("Fragment 6", "onDestroy");
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        Log.d("Fragment 6", "onDetach");
     }
 }
