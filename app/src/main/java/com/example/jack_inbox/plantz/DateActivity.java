@@ -3,10 +3,15 @@ package com.example.jack_inbox.plantz;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.GestureDetectorCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
@@ -16,7 +21,9 @@ import android.widget.Switch;
 
 import java.util.Calendar;
 
-public class DateActivity extends Fragment {
+public class DateActivity extends AppCompatActivity
+{
+    private GestureDetectorCompat gestureObject;
 
     Switch autoDate;
     EditText date;
@@ -26,7 +33,7 @@ public class DateActivity extends Fragment {
     int mMonth = c.get(Calendar.MONTH); // current month
     int mDay = c.get(Calendar.DAY_OF_MONTH); // current day
 
-    @Override
+    /**@Override
     public View onCreateView(LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
@@ -78,69 +85,46 @@ public class DateActivity extends Fragment {
         });
             return v;
 
-    }
-
+    }**/
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        Log.d("Fragment 4", "onAttach");
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-
-
-
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-        Log.d("Fragment 4", "onCreate");
+        setContentView(R.layout.activity_dateact);
+
+        gestureObject = new GestureDetectorCompat(this, new LearnGesture());
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        Log.d("Fragment 4", "onActivityCreated");
+    public boolean onTouchEvent(MotionEvent event) {
+        this.gestureObject.onTouchEvent(event);
+        return super.onTouchEvent(event);
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        Log.d("Fragment 4", "onStart");
-    }
+    class LearnGesture extends GestureDetector.SimpleOnGestureListener{
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.d("Fragment 4", "onResume");
-    }
+        @Override
+        public boolean onFling(MotionEvent event1, MotionEvent event2,
+                               float velocityX, float velocityY){
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        Log.d("Fragment 4", "onPause");
-    }
+            if(event2.getX() > event1.getX())
+            {
+                Intent intent = new Intent(
+                        DateActivity.this, MapsActivity.class);
+                finish();
+                startActivity(intent);
+            }
+            else if (event2.getX() < event1.getX())
+            {
+                Intent intent = new Intent(
+                        DateActivity.this, LightActivity.class);
+                finish();
+                startActivity(intent);
+            }
+            return true;
 
-    @Override
-    public void onStop() {
-        super.onStop();
-        Log.d("Fragment 4", "onStop");
+        }
+
 
     }
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        Log.d("Fragment 4", "onDestroyView");
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.d("Fragment 4", "onDestroy");
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        Log.d("Fragment 4", "onDetach");
-    }
-
 }
