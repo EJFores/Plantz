@@ -1,6 +1,6 @@
 package com.example.jack_inbox.plantz;
 
-
+   //https://api.myjson.com/bins/jmad7?pretty=1
 
 import android.os.AsyncTask;
 
@@ -28,7 +28,7 @@ public class FetchPlantData extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... voids) {
         try {
-            URL url = new URL("https://api.myjson.com/bins/j5f6b");
+            URL url = new URL("https://api.myjson.com/bins/pzu97");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
@@ -41,12 +41,14 @@ public class FetchPlantData extends AsyncTask<Void, Void, Void> {
             JSONArray JA = new JSONArray(data);
             for(int i =0 ;i <JA.length(); i++){
                 JSONObject JO = (JSONObject) JA.get(i);
-                singleParsed =  "Name:" + JO.get("name") + "\n"+
-                        "Password:" + JO.get("password") + "\n"+
-                        "Contact:" + JO.get("contact") + "\n"+
-                        "Country:" + JO.get("country") + "\n";
 
-                dataParsed = dataParsed + singleParsed +"\n";
+                    singleParsed = "Name:" + JO.get("name") + "\n" +
+                            "Temp1:" + JO.get("temperature1") + "\n" +
+                            "Temp2:" + JO.get("temperature2") + "\n"+
+                            "Water:" + JO.get("water") + "\n" +
+                            "sun:" + JO.get("sun") + "\n";
+
+                    dataParsed = dataParsed + singleParsed + "\n";
 
 
             }
