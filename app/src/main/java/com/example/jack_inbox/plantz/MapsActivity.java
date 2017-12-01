@@ -6,45 +6,40 @@ import android.graphics.Camera;
 import android.os.Bundle;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.app.Fragment;
 import android.util.Log;
 import android.view.*;
 
 import com.example.jack_inbox.plantz.R;
-import com.google.android.gms.maps.CameraUpdate;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.MapsInitializer;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.CameraPosition;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.*;
+import com.google.android.gms.maps.model.*;
 
 //https://stackoverflow.com/questions/19353255/how-to-put-google-maps-v2-on-a-fragment-using-viewpager
 //my precious....my precious.....THIEF THIEF! WE STOLES IT, WE STOLES IT FROM THEM. golem golem...
 public class MapsActivity extends AppCompatActivity
 {
     MapView mMapView;
-    private GoogleMap googleMap;
+    public GoogleMap googleMap;
 
     private GestureDetectorCompat gestureObject;
 
-    /**@Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    @Override
+    public void onCreate(Bundle savedInstanceState)
     {
-        View rootView =  inflater.inflate(R.layout.activity_testing, container, false);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_mapsact);
 
-        mMapView = rootView.findViewById(R.id.mapView);
+        gestureObject = new GestureDetectorCompat(this, new LearnGesture());
+
+        mMapView = (MapView) findViewById(R.id.mapView);
         mMapView.onCreate(savedInstanceState);
         mMapView.onResume();
 
         try
         {
-            MapsInitializer.initialize(getActivity().getApplicationContext());
+            MapsInitializer.initialize(MapsActivity.this);
         }catch (Exception Petong)
         {
-            Log.d("Fragment 1", "onCreateView-ITS ALL GONE PETE TONG, CALL NIXON, A DEAF WOMAN, AND A HIPPIE");
+            Log.d("MapsActivity", "onCreateView-ITS ALL GONE PETE TONG, CALL NIXON, A DEAF WOMAN, AND A HIPPIE");
             Petong.printStackTrace();
         }
 
@@ -54,6 +49,7 @@ public class MapsActivity extends AppCompatActivity
             public void onMapReady(GoogleMap gMan)
             {
                 googleMap = gMan;
+                googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
                 //googleMap.setMyLocationEnabled(true);
                 LatLng carbonil = new LatLng(37.709108, -89.220732);
                 googleMap.addMarker(new MarkerOptions().position(carbonil).title("Le Title").snippet("Le Description"));
@@ -61,17 +57,8 @@ public class MapsActivity extends AppCompatActivity
                 googleMap.animateCamera((CameraUpdateFactory.newCameraPosition(cameraPosition)));
             }
         });
-        return rootView;
-    }**/
-
-        @Override
-        public void onCreate(Bundle savedInstanceState)
-        {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_mapsact);
-
-            gestureObject = new GestureDetectorCompat(this, new LearnGesture());
-        }
+        return googleMap;
+    }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
