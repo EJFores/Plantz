@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context="com.example.jack_inbox.plantz.WeatherActivity">
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="weather"
+        android:text="Weather"
+        android:textSize="27sp"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -20,7 +22,46 @@
         app:layout_constraintVertical_bias="0.0"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weather"
+        android:layout_below="@+id/textView8"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/button"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="375dp"
+        android:layout_below="@+id/button"
+        android:id="@+id/scroll">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:textSize="32sp"
+            android:id="@+id/weather"
+            android:hint="Please Input Zipcode"/>
+    </ScrollView>
+
+    <EditText
+        android:id="@+id/cityInput"
+        android:layout_width="115dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button"
+        android:layout_marginLeft="19dp"
+        android:layout_toRightOf="@+id/button"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="zipcode" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Swipe below ----> for next step !!"
+        android:textSize="15sp"
+        android:id="@+id/swipe"
+        android:layout_below="@id/scroll"/>
 
 
-    //cool
 </RelativeLayout>

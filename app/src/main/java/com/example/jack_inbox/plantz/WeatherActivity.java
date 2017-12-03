@@ -6,9 +6,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class WeatherActivity extends AppCompatActivity
 {
+
+    public static String city;
+
+    Button click;
+    public static TextView data;
+    public static EditText cityinput;
+
 
     private GestureDetectorCompat gestureObject;
 
@@ -17,6 +28,20 @@ public class WeatherActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weatheract);
+
+        click = (Button) findViewById(R.id.button);
+        data = (TextView) findViewById(R.id.weather);
+        cityinput = (EditText) findViewById(R.id.cityInput);
+
+        click.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                city = cityinput.getText().toString();
+                weatherData process = new weatherData();
+                process.execute();
+            }
+        });
 
         gestureObject = new GestureDetectorCompat(this, new LearnGesture());
     }
