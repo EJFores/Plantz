@@ -10,9 +10,10 @@
         android:id="@+id/textView8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="date"
-        android:textSize="27sp"
+        android:text="Date"
         android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -22,6 +23,42 @@
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1" />
 
+    <Switch
+        android:id="@+id/autoDate"
+        android:layout_width="200sp"
+        android:layout_height="50sp"
+        android:layout_gravity="start"
+        android:text="Auto Date"
+        android:textAlignment="center"
+        android:textSize="27sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.015"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_below="@+id/date"
+        android:layout_centerHorizontal="true" />
 
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="62dp"
+        android:clickable="true"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:hint="Select Date..."
+        android:padding="15dp"
+        android:textSize="27sp"
+        android:textStyle="italic"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_below="@+id/textView8"
+        android:layout_centerHorizontal="true" />
     //cool
 </RelativeLayout>

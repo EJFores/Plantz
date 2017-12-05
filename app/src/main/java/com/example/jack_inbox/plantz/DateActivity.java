@@ -29,26 +29,27 @@ public class DateActivity extends AppCompatActivity
     EditText date;
     DatePickerDialog datePickerDialog;
     final Calendar c = Calendar.getInstance();
-    int mYear = c.get(Calendar.YEAR); // current year
-    int mMonth = c.get(Calendar.MONTH); // current month
-    int mDay = c.get(Calendar.DAY_OF_MONTH); // current day
 
-    /**@Override
-    public View onCreateView(LayoutInflater inflater,
-                             @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
+
+    @Override
+    public void onCreate(Bundle savedInstanceState)
     {
-        View v = inflater.inflate(R.layout.activity_date,container,false);
 
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_dateact);
         // initiate the date picker and a button
-        date = v.findViewById(R.id.date);
+        date = (EditText) findViewById(R.id.date);
         // perform click event on edit text
         date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // calender class's instance and get current date , month and year from calender
-
+                final Calendar c = Calendar.getInstance();
+                int mYear = c.get(Calendar.YEAR); // current year
+                int mMonth = c.get(Calendar.MONTH); // current month
+                int mDay = c.get(Calendar.DAY_OF_MONTH); // current day
                 // date picker dialog
-                datePickerDialog = new DatePickerDialog(getActivity(),
+                datePickerDialog = new DatePickerDialog(DateActivity.this,
                         new DatePickerDialog.OnDateSetListener() {
 
                             @Override
@@ -61,10 +62,13 @@ public class DateActivity extends AppCompatActivity
                             }
                         }, mYear, mMonth, mDay);
                 datePickerDialog.show();
-            autoDate.setChecked(false);}});
+                autoDate.setChecked(false);
+            }
+        });
+
 
 // For the Switch
-        autoDate = v.findViewById(R.id.autoDate);
+        autoDate = (Switch) findViewById(R.id.autoDate);
         autoDate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
@@ -83,15 +87,6 @@ public class DateActivity extends AppCompatActivity
                 }
             }
         });
-            return v;
-
-    }**/
-    @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dateact);
-
         gestureObject = new GestureDetectorCompat(this, new LearnGesture());
     }
 
