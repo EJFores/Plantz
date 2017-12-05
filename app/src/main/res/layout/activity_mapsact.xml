@@ -8,14 +8,14 @@
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView"
-        android:layout_height="300dp"
+        android:layout_height="450dp"
         android:layout_width="match_parent" />
 
     <TextView
         android:id="@+id/LetextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="maps"
+        android:text="Your Current Location"
         android:textSize="27sp"
         android:textAlignment="center" />
 

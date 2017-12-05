@@ -1,24 +1,31 @@
 package com.example.jack_inbox.plantz;
 
-import android.app.Activity;
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
-import android.graphics.Camera;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.*;
 
-import com.example.jack_inbox.plantz.R;
 import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.*;
 
-//https://stackoverflow.com/questions/19353255/how-to-put-google-maps-v2-on-a-fragment-using-viewpager
-//my precious....my precious.....THIEF THIEF! WE STOLES IT, WE STOLES IT FROM THEM. golem golem...
-public class MapsActivity extends AppCompatActivity
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, LocationListener
 {
     MapView mMapView;
     public GoogleMap googleMap;
+    private LocationManager locationManager;
+    public LatLng locLatLong;
+    private static final long MIN_TIME = 400;
+    private static final float MIN_DISTANCE = 1000;
 
     private GestureDetectorCompat gestureObject;
 
@@ -34,6 +41,13 @@ public class MapsActivity extends AppCompatActivity
         mMapView.onCreate(savedInstanceState);
         mMapView.onResume();
 
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+    }
+
+    public void onStart()
+    {
+        super.onStart();
+
         try
         {
             MapsInitializer.initialize(MapsActivity.this);
@@ -43,21 +57,74 @@ public class MapsActivity extends AppCompatActivity
             Petong.printStackTrace();
         }
 
-        mMapView.getMapAsync(new OnMapReadyCallback()
-        {
-            @Override
-            public void onMapReady(GoogleMap gMan)
-            {
-                googleMap = gMan;
-                googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-                //googleMap.setMyLocationEnabled(true);
-                LatLng carbonil = new LatLng(37.709108, -89.220732);
-                googleMap.addMarker(new MarkerOptions().position(carbonil).title("Le Title").snippet("Le Description"));
-                CameraPosition cameraPosition = new CameraPosition.Builder().target(carbonil).zoom(12).build();
-                googleMap.animateCamera((CameraUpdateFactory.newCameraPosition(cameraPosition)));
+        mMapView.getMapAsync(this);
+    }
+
+    @Override
+    public void onMapReady(GoogleMap gMan)
+    {
+        googleMap = gMan;
+        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            //User has previously accepted this permission
+            if (ActivityCompat.checkSelfPermission(this,
+                    Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                googleMap.setMyLocationEnabled(true);
+                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME, MIN_DISTANCE, this);
             }
-        });
-        return googleMap;
+        } else {
+            //Not in api-23, no need to prompt
+            locLatLong = new LatLng(37.7091282,-89.2206553);
+            googleMap.setMyLocationEnabled(true);
+        }
+
+        googleMap.addMarker(new MarkerOptions().position(locLatLong).title("Le Title").snippet("Le Description"));
+        CameraPosition cameraPosition = new CameraPosition.Builder().target(locLatLong).zoom(12).build();
+        googleMap.animateCamera((CameraUpdateFactory.newCameraPosition(cameraPosition)));
+    }
+
+
+    @Override
+    public void onLocationChanged(Location location) {
+        locLatLong =  new LatLng(location.getLatitude(), location.getLongitude());
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(locLatLong, 10);
+        googleMap.animateCamera(cameraUpdate);
+        locationManager.removeUpdates(this);
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) { }
+
+    @Override
+    public void onProviderEnabled(String provider) { }
+
+    @Override
+    public void onProviderDisabled(String provider) { }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mMapView.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mMapView.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mMapView.onDestroy();
+    }
+
+    @Override
+    public void onLowMemory()
+    {
+        super.onLowMemory();
+        mMapView.onLowMemory();
     }
 
     @Override
