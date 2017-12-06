@@ -4,9 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
+import android.location.*;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -26,6 +24,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public LatLng locLatLong;
     private static final long MIN_TIME = 400;
     private static final float MIN_DISTANCE = 1000;
+    public double longitude;
+    public double latitude;
 
     private GestureDetectorCompat gestureObject;
 
@@ -71,11 +71,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             if (ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 googleMap.setMyLocationEnabled(true);
-                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME, MIN_DISTANCE, this);
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_TIME, MIN_DISTANCE, this);
+
             }
         } else {
             //Not in api-23, no need to prompt
             locLatLong = new LatLng(37.7091282,-89.2206553);
+            longitude = 37.7091282;
+            latitude = -89.2206553;
             googleMap.setMyLocationEnabled(true);
         }
 
@@ -91,6 +94,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(locLatLong, 10);
         googleMap.animateCamera(cameraUpdate);
         locationManager.removeUpdates(this);
+        longitude = location.getLongitude();
+        latitude = location.getLatitude();
     }
 
     @Override
