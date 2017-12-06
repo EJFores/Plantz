@@ -62,6 +62,12 @@
         android:layout_below="@+id/scrollView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/coord"
+        android:textColor="@color/MannysSoul"
+        android:text="Coordinates"/>
 
 
 </RelativeLayout>

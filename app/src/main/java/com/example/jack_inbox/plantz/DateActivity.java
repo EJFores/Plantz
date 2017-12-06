@@ -105,7 +105,7 @@ public class DateActivity extends AppCompatActivity
             if(event2.getX() > event1.getX())
             {
                 Intent intent = new Intent(
-                        DateActivity.this, MapsActivity.class);
+                        DateActivity.this, MainActivity.class);
                 finish();
                 startActivity(intent);
             }

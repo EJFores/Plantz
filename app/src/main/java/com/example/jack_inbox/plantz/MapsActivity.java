@@ -12,6 +12,7 @@ import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.*;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.*;
@@ -24,8 +25,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public LatLng locLatLong;
     private static final long MIN_TIME = 400;
     private static final float MIN_DISTANCE = 1000;
-    public double longitude;
-    public double latitude;
+    public static String longitude;
+    public static String latitude;
+
+    public static TextView coord;
 
     private GestureDetectorCompat gestureObject;
 
@@ -40,6 +43,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMapView = (MapView) findViewById(R.id.mapView);
         mMapView.onCreate(savedInstanceState);
         mMapView.onResume();
+
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
     }
@@ -58,6 +62,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
         mMapView.getMapAsync(this);
+
+        /****/
     }
 
     @Override
@@ -77,14 +83,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         } else {
             //Not in api-23, no need to prompt
             locLatLong = new LatLng(37.7091282,-89.2206553);
-            longitude = 37.7091282;
-            latitude = -89.2206553;
+            longitude = String.valueOf(37.7091282);
+            latitude = String.valueOf(-89.2206553);
             googleMap.setMyLocationEnabled(true);
         }
-
-        googleMap.addMarker(new MarkerOptions().position(locLatLong).title("Le Title").snippet("Le Description"));
+        googleMap.addMarker(new MarkerOptions().position(locLatLong).title("IST").snippet("Le Description"));
         CameraPosition cameraPosition = new CameraPosition.Builder().target(locLatLong).zoom(12).build();
         googleMap.animateCamera((CameraUpdateFactory.newCameraPosition(cameraPosition)));
+
+        coord = (TextView) findViewById(R.id.coord);
+        coord.setText(longitude);
     }
 
 
@@ -94,9 +102,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(locLatLong, 10);
         googleMap.animateCamera(cameraUpdate);
         locationManager.removeUpdates(this);
-        longitude = location.getLongitude();
-        latitude = location.getLatitude();
+        longitude = String.valueOf(location.getLongitude());
+        latitude = String.valueOf(location.getLatitude());
     }
+
+
 
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) { }
@@ -147,16 +157,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             if(event2.getX() > event1.getX())
             {
                 Intent intent = new Intent(
-                        MapsActivity.this, MainActivity.class);
+                        MapsActivity.this, WeatherActivity.class);
                 finish();
                 startActivity(intent);
             }
             else if (event2.getX() < event1.getX())
             {
-                Intent intent = new Intent(
-                        MapsActivity.this, DateActivity.class);
-                finish();
-                startActivity(intent);
+
             }
             return true;
 

@@ -35,7 +35,7 @@ public class weatherData extends AsyncTask<Void,Void,Void>{
     protected Void doInBackground(Void... voids) {
 
         try {
-            URL url = new URL("http://api.openweathermap.org/data/2.5/weather?lat="+WeatherActivity.city+"&appid=a5ffc5200836e47d043620b2babae736&units=imperial");
+            URL url = new URL("http://api.openweathermap.org/data/2.5/weather?lat="+MapsActivity.latitude+"&long="+MapsActivity.longitude+"&appid=a5ffc5200836e47d043620b2babae736&units=imperial");
 
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
@@ -62,7 +62,7 @@ public class weatherData extends AsyncTask<Void,Void,Void>{
 
             TheWeather =
                     "City: " + Utils.getString("name",jsonObject) + "\n" +
-                            "ZIP = "+WeatherActivity.city + "\n" +
+                            //"ZIP = "+WeatherActivity.city + "\n" +
                             "Country: " + Utils.getString("country",sysObj) + "\n" + "\n" +
                             "Temp: " + Utils.getInt("temp",mainObj) + "℉" +"\n" +
                             "Description: " + Utils.getString("description",jsonWeather) + "\n" + "\n" +

@@ -69,7 +69,10 @@ public class WeatherActivity extends AppCompatActivity
             }
             else if (event2.getX() < event1.getX())
             {
-
+                Intent intent = new Intent(
+                        WeatherActivity.this, MapsActivity.class);
+                finish();
+                startActivity(intent);
 
             }
             return true;
