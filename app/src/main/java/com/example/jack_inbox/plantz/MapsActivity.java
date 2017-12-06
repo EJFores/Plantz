@@ -24,8 +24,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public LatLng locLatLong;
     private static final long MIN_TIME = 400;
     private static final float MIN_DISTANCE = 1000;
-    public double longitude;
-    public double latitude;
+    public static double longitude;
+    public static double latitude;
+    public static String stlongitude;
+    public static String stlatitude;
 
     private GestureDetectorCompat gestureObject;
 
