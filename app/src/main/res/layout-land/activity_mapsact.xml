@@ -8,7 +8,7 @@
     android:weightSum="1">
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="395dp"
+        android:layout_height="200dp"
         android:id="@+id/scrollView2"
         android:layout_below="@+id/scrollView"
         android:layout_weight="0.29">
@@ -20,7 +20,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="66dp"
+        android:layout_height="45dp"
         android:id="@+id/scrollView1"
         android:layout_weight="0.74"
         android:layout_below="@+id/scrollView2">
@@ -34,11 +34,11 @@
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:text="Swipe Below To Continue"
-        android:textSize="15sp"
+        android:textSize="13sp"
         android:layout_below="@+id/LetextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="3dp" />
+        android:layout_marginTop="1dp" />
 
     <View
         android:layout_width="match_parent"
@@ -49,7 +49,7 @@
         android:layout_below="@+id/swipe2"
         android:layout_marginBottom="3dp"/>
 
-
+    
 
     <TextView
         android:id="@+id/LetextView"
@@ -57,8 +57,7 @@
         android:layout_height="wrap_content"
         android:text="Your Current Location"
         android:textAlignment="center"
-        android:textSize="27sp"
-        android:layout_marginBottom="10dp"
+        android:textSize="20sp"
         android:layout_below="@+id/scrollView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />

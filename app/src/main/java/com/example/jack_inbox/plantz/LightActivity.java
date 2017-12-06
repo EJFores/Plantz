@@ -4,21 +4,18 @@
 
 package com.example.jack_inbox.plantz;
 
-import android.app.Activity;
-import android.content.AsyncQueryHandler;
 import android.content.Intent;
 import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.icu.text.DecimalFormat;
+import android.os.Bundle;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
 
 
 public class LightActivity extends AppCompatActivity
