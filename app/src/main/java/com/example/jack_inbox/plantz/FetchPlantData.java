@@ -73,6 +73,8 @@ public class FetchPlantData extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-        APILookupActivity.data.setText(this.dataParsed);
+        //APILookupActivity.data.setText(this.dataParsed);
+        PlantTestActivity.data.setText(this.dataParsed);
+
     }
 }
