@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/coord"
         android:textColor="@color/MannysSoul"
-        android:text="Coordinates"/>
+        android:text="Coordinate"/>
 
 
 </RelativeLayout>
