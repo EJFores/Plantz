@@ -61,5 +61,15 @@
         <item>WY</item>
     </string-array>
 
+    <string-array name="plants">
+        <item>sunflower</item>
+        <item>spiderwort</item>
+        <item>pocket plant</item>
+        <item>stachys</item>
+        <item>striped bletilla</item>
+        <item>coreopsis</item>
+        <item>daylily golden prize</item>
+    </string-array>
+
 
 </resources>

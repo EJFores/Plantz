@@ -42,14 +42,19 @@ public class FetchPlantData extends AsyncTask<Void, Void, Void> {
             for(int i =0 ;i <JA.length(); i++){
                 JSONObject JO = (JSONObject) JA.get(i);
 
+                if(JO.get("name").equals(PlantTestActivity.plant)) {
+
                     singleParsed = "Name:" + JO.get("name") + "\n" +
                             "Temp1:" + JO.get("temperature1") + "\n" +
-                            "Temp2:" + JO.get("temperature2") + "\n"+
+                            "Temp2:" + JO.get("temperature2") + "\n" +
                             "Water:" + JO.get("water") + "\n" +
                             "sun:" + JO.get("sun") + "\n";
 
-                    dataParsed = dataParsed + singleParsed + "\n";
 
+                    dataParsed = dataParsed + singleParsed + "\n";
+                }
+
+                System.out.println(dataParsed);
 
             }
 

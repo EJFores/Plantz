@@ -18,6 +18,7 @@ public class APILookupActivity extends AppCompatActivity
         setContentView(R.layout.activity_apilook);
 
 
+
         click = (Button) findViewById(R.id.button);
         data = (TextView) findViewById(R.id.fetchdata);
 
