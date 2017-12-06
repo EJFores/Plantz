@@ -6,24 +6,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:id="@+id/scrollView2"
-        android:layout_below="@+id/scrollView"
-        android:layout_weight="0.29">
+
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView"
-        android:layout_height="393dp"
+        android:layout_height="200dp"
         android:layout_width="match_parent" />
-    </ScrollView>
+
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:id="@+id/scrollView1"
         android:layout_weight="0.74"
-        android:layout_below="@+id/scrollView2">
+        android:layout_below="@+id/mapView">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -58,7 +53,7 @@
         android:text="Your Current Location"
         android:textAlignment="center"
         android:textSize="20sp"
-        android:layout_below="@+id/scrollView2"
+        android:layout_below="@+id/mapView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
