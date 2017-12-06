@@ -22,8 +22,9 @@ public class PlantTestActivity extends AppCompatActivity implements OnItemSelect
 
     Spinner spinner;
     public static String plant;
+    public static TextView data;
 
-    TextView data;
+    //TextView data;
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -52,7 +53,10 @@ public class PlantTestActivity extends AppCompatActivity implements OnItemSelect
 
             plant = spinner.getSelectedItem().toString();
 
-            data.setText(this.plant);
+            //data.setText(this.plant);
+
+            FetchPlantData process = new FetchPlantData();
+            process.execute();
 
         }
 
