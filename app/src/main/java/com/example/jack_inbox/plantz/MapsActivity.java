@@ -24,8 +24,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public LatLng locLatLong;
     private static final long MIN_TIME = 400;
     private static final float MIN_DISTANCE = 1000;
-    public double longitude;
-    public double latitude;
+    public static double longitude;
+    public static double latitude;
 
     private GestureDetectorCompat gestureObject;
 
@@ -66,27 +66,31 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         googleMap = gMan;
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        //if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             //User has previously accepted this permission
             if (ActivityCompat.checkSelfPermission(this,
-                    Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                    Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
+            {
                 googleMap.setMyLocationEnabled(true);
-                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_TIME, MIN_DISTANCE, this);
-
+                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME, MIN_DISTANCE, this);
+                Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+                locLatLong =  new LatLng(location.getLatitude(), location.getLongitude());
+                Log.d("locmang", "yep it got here it is returning the location of1 " + locLatLong);
             }
-        } else {
+       // }
+        else {
             //Not in api-23, no need to prompt
             locLatLong = new LatLng(37.7091282,-89.2206553);
+                Log.d("locmang", "yep it got here it is returning the location of2 " + locLatLong);
             longitude = 37.7091282;
             latitude = -89.2206553;
             googleMap.setMyLocationEnabled(true);
         }
-
-        googleMap.addMarker(new MarkerOptions().position(locLatLong).title("Le Title").snippet("Le Description"));
+        Log.d("locmang", "yep it got here it is returning the location of3 " + locLatLong);
+       // googleMap.addMarker(new MarkerOptions().position(locLatLong).title("Le Title").snippet("Le Description"));
         CameraPosition cameraPosition = new CameraPosition.Builder().target(locLatLong).zoom(12).build();
         googleMap.animateCamera((CameraUpdateFactory.newCameraPosition(cameraPosition)));
     }
-
 
     @Override
     public void onLocationChanged(Location location) {
@@ -99,13 +103,28 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) { }
+    public void onStatusChanged(String provider, int status, Bundle extras)
+    {
+        Log.d("hello","onProviderEnabled");
+        System.out.println("onProviderEnabled");
+        System.out.println("privider:" + provider);
+    }
 
     @Override
-    public void onProviderEnabled(String provider) { }
+    public void onProviderEnabled(String provider)
+    {
+        Log.d("hello","onProviderEnabled");
+        System.out.println("onProviderEnabled");
+        System.out.println("privider:" + provider);
+    }
 
     @Override
-    public void onProviderDisabled(String provider) { }
+    public void onProviderDisabled(String provider)
+    {
+        Log.d("hello","onProviderEnabled");
+        System.out.println("onProviderEnabled");
+        System.out.println("privider:" + provider);
+    }
 
     @Override
     public void onResume() {
