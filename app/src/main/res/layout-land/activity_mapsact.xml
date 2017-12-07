@@ -13,16 +13,9 @@
         android:layout_width="match_parent" />
 
 
-    <ScrollView
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:id="@+id/scrollView1"
-        android:layout_weight="0.74"
-        android:layout_below="@+id/mapView">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </ScrollView>
+        android:layout_height="match_parent" />
 
     <TextView
         android:id="@+id/swipe2"
