@@ -120,6 +120,7 @@
         android:text="1. Get a light meter that is accurate."
         android:textSize="18sp"
         android:textStyle="italic"
+        android:layout_below="@id/textView7"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />

@@ -94,6 +94,7 @@
                 android:textSize="12sp"
                 android:layout_marginBottom="3dp"
                 android:textStyle="bold|italic"
+                android:layout_below="@id/count"
                 android:layout_centerVertical="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
