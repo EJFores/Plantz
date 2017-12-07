@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class WeatherActivity extends AppCompatActivity
 {
@@ -35,6 +36,23 @@ public class WeatherActivity extends AppCompatActivity
 
         weatherData process = new weatherData();
         process.execute();
+
+        final Button planttest = (Button) findViewById(R.id.planttest);
+        planttest.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                if ((weatherData.weather >= FetchPlantData.fweather) && (weatherData.weather <= FetchPlantData.f2weather)){
+                    Toast.makeText(WeatherActivity.this, "PASSED", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(WeatherActivity.this, "FAILED", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
 
         gestureObject = new GestureDetectorCompat(this, new LearnGesture());
     }

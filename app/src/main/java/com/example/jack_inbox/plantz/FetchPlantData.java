@@ -4,6 +4,8 @@ package com.example.jack_inbox.plantz;
 
 import android.os.AsyncTask;
 
+import com.example.jack_inbox.plantz.Util.Utils;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,6 +27,8 @@ public class FetchPlantData extends AsyncTask<Void, Void, Void> {
     String dataParsed = "";
     String singleParsed = "";
 
+    public static int fweather;
+    public static int f2weather;
     @Override
     protected Void doInBackground(Void... voids) {
         try {
@@ -50,6 +54,9 @@ public class FetchPlantData extends AsyncTask<Void, Void, Void> {
                             "Water:" + JO.get("water") + "\n" +
                             "sun:" + JO.get("sun") + "\n";
 
+
+                    fweather = Utils.getInt("temperature1",JO);
+                    f2weather = Utils.getInt("temperature2",JO);
 
                     dataParsed = dataParsed + singleParsed + "\n";
                 }
