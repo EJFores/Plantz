@@ -27,6 +27,7 @@ public class LightActivity extends AppCompatActivity
     private TextView textView;
     private double seekBarProgress = 1.0;
     private double currentLux = 1.0;
+    public static int lux;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -102,6 +103,7 @@ public class LightActivity extends AppCompatActivity
             if (event.sensor.getType() == Sensor.TYPE_LIGHT) {
                 currentLux = event.values[0];
                 currentLux = currentLux * seekBarProgress;
+                lux = Integer.valueOf((int) currentLux);
                 textLIGHT_reading.setText("LUX: " + String.format("%.2f", currentLux));
             }
         }

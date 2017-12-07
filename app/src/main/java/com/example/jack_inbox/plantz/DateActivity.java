@@ -29,7 +29,7 @@ public class DateActivity extends AppCompatActivity
     EditText date;
     DatePickerDialog datePickerDialog;
     final Calendar c = Calendar.getInstance();
-    public static String dateNum;
+    public static int dateNum;
 
 
     @Override
@@ -61,7 +61,8 @@ public class DateActivity extends AppCompatActivity
                                 date.setText((monthOfYear + 1) + "/"
                                         + (dayOfMonth) + "/" + year);
 
-                                dateNum = (monthOfYear+1) +""+ dayOfMonth;
+                                dateNum =  + dayOfMonth;
+                                dateNum = Integer.parseInt((monthOfYear+1)+""+dayOfMonth);
                                 Log.d("datecheck", "datepicker is returning:" + dateNum);
                             }
                         }, mYear, mMonth, mDay);
@@ -84,7 +85,7 @@ public class DateActivity extends AppCompatActivity
 
                     date.setText((monthOfYear + 1) + "/"
                             + (dayOfMonth) + "/" + year);
-                    dateNum = (monthOfYear+1) +""+ dayOfMonth;
+                    dateNum = (monthOfYear+1) + dayOfMonth;
                     Log.d("datecheck", "sysdate is returning:" + dateNum);
                 }
                 else
