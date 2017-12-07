@@ -29,6 +29,8 @@ public class FetchPlantData extends AsyncTask<Void, Void, Void> {
 
     public static int fweather;
     public static int f2weather;
+    public static int ddate2;
+    public static int ddate1;
     @Override
     protected Void doInBackground(Void... voids) {
         try {
@@ -57,6 +59,8 @@ public class FetchPlantData extends AsyncTask<Void, Void, Void> {
 
                     fweather = Utils.getInt("temperature1",JO);
                     f2weather = Utils.getInt("temperature2",JO);
+                    ddate1 = Utils.getInt("date1",JO);
+                    ddate2 = Utils.getInt("date2",JO);
 
                     dataParsed = dataParsed + singleParsed + "\n";
                 }

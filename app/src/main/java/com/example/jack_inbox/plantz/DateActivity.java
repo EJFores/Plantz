@@ -14,10 +14,12 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -29,7 +31,8 @@ public class DateActivity extends AppCompatActivity
     EditText date;
     DatePickerDialog datePickerDialog;
     final Calendar c = Calendar.getInstance();
-    public static String dateNum;
+
+    public static int dateNum;
 
 
     @Override
@@ -61,7 +64,7 @@ public class DateActivity extends AppCompatActivity
                                 date.setText((monthOfYear + 1) + "/"
                                         + (dayOfMonth) + "/" + year);
 
-                                dateNum = (monthOfYear+1) +""+ dayOfMonth;
+                                dateNum = Integer.parseInt((monthOfYear+1) +""+ dayOfMonth);
                                 Log.d("datecheck", "datepicker is returning:" + dateNum);
                             }
                         }, mYear, mMonth, mDay);
@@ -84,7 +87,7 @@ public class DateActivity extends AppCompatActivity
 
                     date.setText((monthOfYear + 1) + "/"
                             + (dayOfMonth) + "/" + year);
-                    dateNum = (monthOfYear+1) +""+ dayOfMonth;
+                    dateNum = Integer.parseInt((monthOfYear+1) +""+ dayOfMonth);
                     Log.d("datecheck", "sysdate is returning:" + dateNum);
                 }
                 else
@@ -93,6 +96,18 @@ public class DateActivity extends AppCompatActivity
                 }
             }
         });
+
+        final Button planttest = (Button) findViewById(R.id.planttest);
+        planttest.setOnClickListener(new View.OnClickListener() {
+                                         @Override
+                                         public void onClick(View view) {
+                                             if ((dateNum >= FetchPlantData.ddate1) && (dateNum <= FetchPlantData.ddate2)) {
+                                                 Toast.makeText(DateActivity.this, "PASSED", Toast.LENGTH_SHORT).show();
+                                             } else {
+                                                 Toast.makeText(DateActivity.this, "FAILED", Toast.LENGTH_SHORT).show();
+                                             }
+                                         }
+                                     });
         gestureObject = new GestureDetectorCompat(this, new LearnGesture());
     }
 
