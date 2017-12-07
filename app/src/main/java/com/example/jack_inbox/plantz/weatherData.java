@@ -76,11 +76,6 @@ public class weatherData extends AsyncTask<Void,Void,Void>{
 
             weather = Utils.getInt("temp",mainObj);
 
-
-
-
-
-
             dataParsed = dataParsed + TheWeather;
 
         } catch (MalformedURLException e) {
