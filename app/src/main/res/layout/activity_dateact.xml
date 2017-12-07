@@ -87,6 +87,5 @@
         android:layout_height="wrap_content"
         android:id="@+id/planttest"
         android:text="TEST"
-        android:layout_below="@id/view"
-        />
+        android:layout_below="@id/view" />
 </RelativeLayout>

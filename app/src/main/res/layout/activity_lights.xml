@@ -166,5 +166,11 @@
         android:layout_alignBottom="@+id/scrollView3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-    //cool
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lighttest"
+        android:text="TEST"
+        android:layout_below="@id/view" />
 </RelativeLayout>

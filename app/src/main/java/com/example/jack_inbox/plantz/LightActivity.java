@@ -14,8 +14,11 @@ import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class LightActivity extends AppCompatActivity
@@ -81,13 +84,28 @@ public class LightActivity extends AppCompatActivity
             }
         });
 
+        final Button planttest = (Button) findViewById(R.id.lighttest);
+        planttest.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                if ((lux >= FetchPlantData.lux1) && (lux <= FetchPlantData.lux2))
+                {
+                    Toast.makeText(LightActivity.this, "PASSED", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(LightActivity.this, "FAILED", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
         gestureObject = new GestureDetectorCompat(this, new LearnGesture());
     }
 
 
     // Creates a Listener event for the Light Sensor
-   private final SensorEventListener LightSensorListener
-            = new SensorEventListener() {
+    private final SensorEventListener LightSensorListener = new SensorEventListener()
+    {
 
         // Called when the accuracy values of the registered sensor has changed.
         // Changes when there is a new accuracy value
