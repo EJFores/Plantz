@@ -103,11 +103,15 @@ public class DateActivity extends AppCompatActivity
                                          public void onClick(View view) {
                                              if ((dateNum >= FetchPlantData.ddate1) && (dateNum <= FetchPlantData.ddate2)) {
                                                  Toast.makeText(DateActivity.this, "PASSED", Toast.LENGTH_SHORT).show();
-                                             } else {
+                                             }
+                                             else
+                                             {
+                                                 Log.d("datecheck", "failedcheck datenum:" + dateNum + "ddate1:" + FetchPlantData.ddate1+ "ddate2" + FetchPlantData.ddate2);
                                                  Toast.makeText(DateActivity.this, "FAILED", Toast.LENGTH_SHORT).show();
                                              }
                                          }
                                      });
+
         gestureObject = new GestureDetectorCompat(this, new LearnGesture());
     }
 
