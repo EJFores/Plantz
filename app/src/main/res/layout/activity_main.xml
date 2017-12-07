@@ -25,14 +25,14 @@
     <Button
         android:id="@+id/api"
         android:layout_width="123dp"
-        android:layout_height="49dp"
+        android:layout_height="73dp"
         android:background="@android:color/transparent"
         android:text="Pick Plant"
         android:textColor="@android:color/holo_orange_dark"
         android:textSize="30sp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.13"
+        app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.7" />

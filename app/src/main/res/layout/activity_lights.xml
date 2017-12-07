@@ -155,6 +155,7 @@
         android:layout_height="5dp"
         android:background="@android:color/darker_gray"
         android:gravity="center"
+        android:id="@+id/viewlight"
         android:visibility="visible"
         android:layout_below="@+id/swipe2" />
     <TextView
@@ -172,5 +173,5 @@
         android:layout_height="wrap_content"
         android:id="@+id/lighttest"
         android:text="TEST"
-        android:layout_below="@id/view" />
+        android:layout_below="@id/viewlight" />
 </RelativeLayout>

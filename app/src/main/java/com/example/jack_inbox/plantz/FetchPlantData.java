@@ -32,6 +32,8 @@ public class FetchPlantData extends AsyncTask<Void, Void, Void> {
     public static int f2weather;
     public static int ddate1;
     public static int ddate2;
+    public static int lux1;
+    public static int lux2;
 
     public static String name = "";
     String temp1 = "";
@@ -71,6 +73,8 @@ public class FetchPlantData extends AsyncTask<Void, Void, Void> {
                     f2weather = Utils.getInt("temperature2",JO);
                     ddate1 = Utils.getInt("date1", JO);
                     ddate2 = Utils.getInt("date2",JO);
+                    lux1 = Utils.getInt("lux1",JO);
+                    lux2 = Utils.getInt("lux2",JO);
 
                     dataParsed = dataParsed + singleParsed + "\n";
 

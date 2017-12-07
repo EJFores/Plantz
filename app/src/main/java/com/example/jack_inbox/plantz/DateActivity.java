@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringDef;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -21,6 +22,7 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class DateActivity extends AppCompatActivity
@@ -31,7 +33,6 @@ public class DateActivity extends AppCompatActivity
     EditText date;
     DatePickerDialog datePickerDialog;
     final Calendar c = Calendar.getInstance();
-
     public static int dateNum;
 
 
@@ -64,7 +65,7 @@ public class DateActivity extends AppCompatActivity
                                 date.setText((monthOfYear + 1) + "/"
                                         + (dayOfMonth) + "/" + year);
 
-                                dateNum = Integer.parseInt((monthOfYear+1) +""+ dayOfMonth);
+                                dateNum = dateFormater((monthOfYear+1),dayOfMonth);
                                 Log.d("datecheck", "datepicker is returning:" + dateNum);
                             }
                         }, mYear, mMonth, mDay);
@@ -87,7 +88,8 @@ public class DateActivity extends AppCompatActivity
 
                     date.setText((monthOfYear + 1) + "/"
                             + (dayOfMonth) + "/" + year);
-                    dateNum = Integer.parseInt((monthOfYear+1) +""+ dayOfMonth);
+
+                    dateNum = dateFormater((monthOfYear+1),dayOfMonth);
                     Log.d("datecheck", "sysdate is returning:" + dateNum);
                 }
                 else
@@ -98,21 +100,47 @@ public class DateActivity extends AppCompatActivity
         });
 
         final Button planttest = (Button) findViewById(R.id.planttest);
-        planttest.setOnClickListener(new View.OnClickListener() {
-                                         @Override
-                                         public void onClick(View view) {
-                                             if ((dateNum >= FetchPlantData.ddate1) && (dateNum <= FetchPlantData.ddate2)) {
-                                                 Toast.makeText(DateActivity.this, "PASSED", Toast.LENGTH_SHORT).show();
-                                             }
-                                             else
-                                             {
-                                                 Log.d("datecheck", "failedcheck datenum:" + dateNum + "ddate1:" + FetchPlantData.ddate1+ "ddate2" + FetchPlantData.ddate2);
-                                                 Toast.makeText(DateActivity.this, "FAILED", Toast.LENGTH_SHORT).show();
-                                             }
-                                         }
-                                     });
+        planttest.setOnClickListener(new View.OnClickListener()
+        {
+             @Override
+             public void onClick(View view) {
+                 if ((dateNum >= FetchPlantData.ddate1) && (dateNum <= FetchPlantData.ddate2)) {
+                     Toast.makeText(DateActivity.this, "PASSED", Toast.LENGTH_SHORT).show();
+                 }
+                 else
+                 {
+                     Log.d("datecheck", "failedcheck datenum:" + dateNum + " ddate1:" + FetchPlantData.ddate1+ " ddate2:" + FetchPlantData.ddate2);
+                     Toast.makeText(DateActivity.this, "FAILED", Toast.LENGTH_SHORT).show();
+                 }
+             }
+     });
 
         gestureObject = new GestureDetectorCompat(this, new LearnGesture());
+    }
+
+    public int dateFormater(int month,int day)
+    {
+        int date;
+        String monthcon;
+        String daycon = "";
+
+        if (String.valueOf(month).length() < 2)
+            Log.d("dateFormat", "month format is less than 2");
+        else
+            Log.d("dateFormat", "month format is 2");
+        monthcon = String.valueOf(month);
+
+        if (String.valueOf(day).length() < 2)
+        {
+            Log.d("dateFormat", "day format is less than 2-changing");
+            daycon= String.valueOf("0"+day);
+            Log.d("dateFormat", "day changed too:"+ daycon);
+        }
+        else
+            Log.d("dateFormat", "day format is 2");
+
+        date = Integer.parseInt(monthcon + daycon);
+        return date;
     }
 
     @Override
