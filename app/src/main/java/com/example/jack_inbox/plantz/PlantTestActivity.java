@@ -23,6 +23,7 @@ public class PlantTestActivity extends AppCompatActivity implements OnItemSelect
     Spinner spinner;
     public static String plant;
     public static TextView data;
+    public static String name;
 
     //TextView data;
         @Override
@@ -53,10 +54,10 @@ public class PlantTestActivity extends AppCompatActivity implements OnItemSelect
 
             plant = spinner.getSelectedItem().toString();
 
-            //data.setText(this.plant);
 
             FetchPlantData process = new FetchPlantData();
             process.execute();
+
 
         }
 
