@@ -24,8 +24,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public LatLng locLatLong;
     private static final long MIN_TIME = 400;
     private static final float MIN_DISTANCE = 1000;
-    public static double longitude;
-    public static double latitude;
+    public static String longitude;
+    public static String latitude;
 
     private GestureDetectorCompat gestureObject;
 
@@ -75,6 +75,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME, MIN_DISTANCE, this);
                 Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
                 locLatLong =  new LatLng(location.getLatitude(), location.getLongitude());
+                latitude = String.valueOf(location.getLatitude());
+                longitude = String.valueOf(location.getLongitude());
                 Log.d("locmang", "yep it got here it is returning the location of1 " + locLatLong);
             }
        // }
@@ -82,8 +84,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             //Not in api-23, no need to prompt
             locLatLong = new LatLng(37.7091282,-89.2206553);
                 Log.d("locmang", "yep it got here it is returning the location of2 " + locLatLong);
-            longitude = 37.7091282;
-            latitude = -89.2206553;
+            longitude = String.valueOf(37.7091282);
+            latitude = String.valueOf(-89.2206553);
             googleMap.setMyLocationEnabled(true);
         }
         Log.d("locmang", "yep it got here it is returning the location of3 " + locLatLong);
@@ -98,8 +100,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(locLatLong, 10);
         googleMap.animateCamera(cameraUpdate);
         locationManager.removeUpdates(this);
-        longitude = location.getLongitude();
-        latitude = location.getLatitude();
+        longitude = String.valueOf(location.getLongitude());
+        latitude = String.valueOf(location.getLatitude());
     }
 
     @Override
@@ -166,16 +168,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             if(event2.getX() > event1.getX())
             {
                 Intent intent = new Intent(
-                        MapsActivity.this, MainActivity.class);
+                        MapsActivity.this, WeatherActivity.class);
                 finish();
                 startActivity(intent);
             }
             else if (event2.getX() < event1.getX())
             {
-                Intent intent = new Intent(
-                        MapsActivity.this, DateActivity.class);
-                finish();
-                startActivity(intent);
+
+
             }
             return true;
 

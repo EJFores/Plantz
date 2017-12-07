@@ -31,14 +31,7 @@
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1" />
 </ScrollView>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Weather"
-        android:id="@+id/button"
-        android:layout_above="@+id/scroll"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -53,22 +46,9 @@
             android:padding="5dp"
             android:textSize="32sp"
             android:id="@+id/weather"
-            android:hint="Please Input Zipcode"/>
+            android:hint="Information Obtained from the location on the phone"/>
     </ScrollView>
 
-    <EditText
-        android:id="@+id/cityInput"
-        android:layout_width="115dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="zipcode"
-        android:layout_alignBaseline="@+id/button"
-        android:layout_alignBottom="@+id/button"
-        android:layout_toRightOf="@+id/button"
-        android:layout_toEndOf="@+id/button"
-        android:layout_marginLeft="26dp"
-        android:layout_marginStart="26dp" />
 
     <View
         android:layout_width="match_parent"

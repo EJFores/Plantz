@@ -37,17 +37,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        final Button buttonapi = (Button) findViewById(R.id.api);
-        buttonapi.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, APILookupActivity.class));
-            }
-        });
-
-
-        final Button buttonplant = (Button) findViewById(R.id.planttest);
+        final Button buttonplant = (Button) findViewById(R.id.api);
         buttonplant.setOnClickListener(new View.OnClickListener()
         {
             @Override

@@ -33,15 +33,8 @@ public class WeatherActivity extends AppCompatActivity
         data = (TextView) findViewById(R.id.weather);
         cityinput = (EditText) findViewById(R.id.cityInput);
 
-        click.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                city = cityinput.getText().toString();
-                weatherData process = new weatherData();
-                process.execute();
-            }
-        });
+        weatherData process = new weatherData();
+        process.execute();
 
         gestureObject = new GestureDetectorCompat(this, new LearnGesture());
     }
