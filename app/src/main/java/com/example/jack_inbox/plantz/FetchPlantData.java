@@ -3,6 +3,7 @@ package com.example.jack_inbox.plantz;
    //https://api.myjson.com/bins/jmad7?pretty=1
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.example.jack_inbox.plantz.Util.Utils;
 
@@ -75,6 +76,7 @@ public class FetchPlantData extends AsyncTask<Void, Void, Void> {
                     ddate2 = Utils.getInt("date2",JO);
                     lux1 = Utils.getInt("lux1",JO);
                     lux2 = Utils.getInt("lux2",JO);
+                    Log.d("fetchcheck", fweather+" "+f2weather+" "+ddate1+" "+ddate2+" "+lux1+" "+lux2);
 
                     dataParsed = dataParsed + singleParsed + "\n";
 

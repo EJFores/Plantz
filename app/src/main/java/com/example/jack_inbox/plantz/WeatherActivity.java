@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -45,8 +46,10 @@ public class WeatherActivity extends AppCompatActivity
             {
                 if ((weatherData.weather >= FetchPlantData.fweather) && (weatherData.weather <= FetchPlantData.f2weather)){
                     Toast.makeText(WeatherActivity.this, "PASSED", Toast.LENGTH_SHORT).show();
+                    Log.d("Weahter", + weatherData.weather + " fetched data" + FetchPlantData.fweather+ " fetched data 2" + FetchPlantData.f2weather);
                 }
                 else {
+                    Log.d("weather", "failedcheck weather" + weatherData.weather + " fetched data:" + FetchPlantData.fweather+ " fetched data 2:" + FetchPlantData.f2weather);
                     Toast.makeText(WeatherActivity.this, "FAILED", Toast.LENGTH_SHORT).show();
                 }
             }
