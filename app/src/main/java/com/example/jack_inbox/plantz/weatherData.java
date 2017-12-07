@@ -31,6 +31,8 @@ public class weatherData extends AsyncTask<Void,Void,Void>{
 
     String TheWeather = "";
 
+    public static int weather;
+
     @Override
     protected Void doInBackground(Void... voids) {
 
@@ -71,6 +73,8 @@ public class weatherData extends AsyncTask<Void,Void,Void>{
                             "Wind Speed: " + Utils.getInt("speed",windObj) + "\n" +
                             "Wind Deg: " + Utils.getInt("deg",windObj);
 
+
+            weather = Utils.getInt("temp",mainObj);
 
 
 
