@@ -27,7 +27,7 @@ public class FetchPlantData extends AsyncTask<Void, Void, Void> {
     String dataParsed = "";
     String singleParsed = "";
 
-
+    //luxadded
     public static int fweather;
     public static int f2weather;
     public static int ddate1;

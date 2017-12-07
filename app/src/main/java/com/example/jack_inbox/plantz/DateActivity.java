@@ -117,7 +117,7 @@ public class DateActivity extends AppCompatActivity
 
         gestureObject = new GestureDetectorCompat(this, new LearnGesture());
     }
-
+    //dateFormatter
     public int dateFormater(int month,int day)
     {
         int date;
@@ -140,6 +140,7 @@ public class DateActivity extends AppCompatActivity
             Log.d("dateFormat", "day format is 2");
 
         date = Integer.parseInt(monthcon + daycon);
+        Log.d("dateFormat", "date:"+ date);
         return date;
     }
 
