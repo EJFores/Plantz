@@ -73,7 +73,7 @@ public class FetchPlantData extends AsyncTask<Void, Void, Void> {
 
                 }
 
-                System.out.println(dataParsed);
+               // System.out.println(dataParsed);
 
             }
 
