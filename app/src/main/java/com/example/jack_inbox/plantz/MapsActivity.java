@@ -159,7 +159,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         return super.onTouchEvent(event);
     }
 
-    class LearnGesture extends GestureDetector.SimpleOnGestureListener{
+    class LearnGesture extends GestureDetector.SimpleOnGestureListener
+    {
 
         @Override
         public boolean onFling(MotionEvent event1, MotionEvent event2,

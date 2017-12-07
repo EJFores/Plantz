@@ -14,10 +14,12 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -29,6 +31,8 @@ public class DateActivity extends AppCompatActivity
     EditText date;
     DatePickerDialog datePickerDialog;
     final Calendar c = Calendar.getInstance();
+
+    public static int dateNum;
 
 
     @Override
@@ -46,11 +50,12 @@ public class DateActivity extends AppCompatActivity
                 // calender class's instance and get current date , month and year from calender
                 final Calendar c = Calendar.getInstance();
                 int mYear = c.get(Calendar.YEAR); // current year
-                int mMonth = c.get(Calendar.MONTH); // current month
+                final int mMonth = c.get(Calendar.MONTH); // current month
                 int mDay = c.get(Calendar.DAY_OF_MONTH); // current day
                 // date picker dialog
                 datePickerDialog = new DatePickerDialog(DateActivity.this,
-                        new DatePickerDialog.OnDateSetListener() {
+                        new DatePickerDialog.OnDateSetListener()
+                        {
 
                             @Override
                             public void onDateSet(DatePicker view, int year,
@@ -59,6 +64,8 @@ public class DateActivity extends AppCompatActivity
                                 date.setText((monthOfYear + 1) + "/"
                                         + (dayOfMonth) + "/" + year);
 
+                                dateNum = Integer.parseInt((monthOfYear+1) +""+ dayOfMonth);
+                                Log.d("datecheck", "datepicker is returning:" + dateNum);
                             }
                         }, mYear, mMonth, mDay);
                 datePickerDialog.show();
@@ -80,6 +87,8 @@ public class DateActivity extends AppCompatActivity
 
                     date.setText((monthOfYear + 1) + "/"
                             + (dayOfMonth) + "/" + year);
+                    dateNum = Integer.parseInt((monthOfYear+1) +""+ dayOfMonth);
+                    Log.d("datecheck", "sysdate is returning:" + dateNum);
                 }
                 else
                 {
@@ -87,6 +96,18 @@ public class DateActivity extends AppCompatActivity
                 }
             }
         });
+
+        final Button planttest = (Button) findViewById(R.id.planttest);
+        planttest.setOnClickListener(new View.OnClickListener() {
+                                         @Override
+                                         public void onClick(View view) {
+                                             if ((dateNum >= FetchPlantData.ddate1) && (dateNum <= FetchPlantData.ddate2)) {
+                                                 Toast.makeText(DateActivity.this, "PASSED", Toast.LENGTH_SHORT).show();
+                                             } else {
+                                                 Toast.makeText(DateActivity.this, "FAILED", Toast.LENGTH_SHORT).show();
+                                             }
+                                         }
+                                     });
         gestureObject = new GestureDetectorCompat(this, new LearnGesture());
     }
 
@@ -95,6 +116,8 @@ public class DateActivity extends AppCompatActivity
         this.gestureObject.onTouchEvent(event);
         return super.onTouchEvent(event);
     }
+
+    //public
 
     class LearnGesture extends GestureDetector.SimpleOnGestureListener{
 
