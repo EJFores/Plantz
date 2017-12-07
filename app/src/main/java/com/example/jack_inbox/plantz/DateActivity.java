@@ -29,6 +29,7 @@ public class DateActivity extends AppCompatActivity
     EditText date;
     DatePickerDialog datePickerDialog;
     final Calendar c = Calendar.getInstance();
+    public static String dateNum;
 
 
     @Override
@@ -46,11 +47,12 @@ public class DateActivity extends AppCompatActivity
                 // calender class's instance and get current date , month and year from calender
                 final Calendar c = Calendar.getInstance();
                 int mYear = c.get(Calendar.YEAR); // current year
-                int mMonth = c.get(Calendar.MONTH); // current month
+                final int mMonth = c.get(Calendar.MONTH); // current month
                 int mDay = c.get(Calendar.DAY_OF_MONTH); // current day
                 // date picker dialog
                 datePickerDialog = new DatePickerDialog(DateActivity.this,
-                        new DatePickerDialog.OnDateSetListener() {
+                        new DatePickerDialog.OnDateSetListener()
+                        {
 
                             @Override
                             public void onDateSet(DatePicker view, int year,
@@ -59,6 +61,8 @@ public class DateActivity extends AppCompatActivity
                                 date.setText((monthOfYear + 1) + "/"
                                         + (dayOfMonth) + "/" + year);
 
+                                dateNum = (monthOfYear+1) +""+ dayOfMonth;
+                                Log.d("datecheck", "datepicker is returning:" + dateNum);
                             }
                         }, mYear, mMonth, mDay);
                 datePickerDialog.show();
@@ -80,6 +84,8 @@ public class DateActivity extends AppCompatActivity
 
                     date.setText((monthOfYear + 1) + "/"
                             + (dayOfMonth) + "/" + year);
+                    dateNum = (monthOfYear+1) +""+ dayOfMonth;
+                    Log.d("datecheck", "sysdate is returning:" + dateNum);
                 }
                 else
                 {
@@ -95,6 +101,8 @@ public class DateActivity extends AppCompatActivity
         this.gestureObject.onTouchEvent(event);
         return super.onTouchEvent(event);
     }
+
+    //public
 
     class LearnGesture extends GestureDetector.SimpleOnGestureListener{
 
