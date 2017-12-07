@@ -27,17 +27,20 @@ public class FetchPlantData extends AsyncTask<Void, Void, Void> {
     String dataParsed = "";
     String singleParsed = "";
 
+
     public static int fweather;
     public static int f2weather;
-    public static int ddate2;
-    public static int ddate1;
-    public static int lux1;
-    public static int lux2;
+
+    public static String name = "";
+    String temp1 = "";
+    String temp2 = "";
+    String sun = "";
+
 
     @Override
     protected Void doInBackground(Void... voids) {
         try {
-            URL url = new URL("https://api.myjson.com/bins/pzu97");
+            URL url = new URL("https://api.myjson.com/bins/164xbb");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
@@ -56,21 +59,21 @@ public class FetchPlantData extends AsyncTask<Void, Void, Void> {
                     singleParsed = "Name:" + JO.get("name") + "\n" +
                             "Temp1:" + JO.get("temperature1") + "\n" +
                             "Temp2:" + JO.get("temperature2") + "\n" +
-                            "Water:" + JO.get("water") + "\n" +
-                            "sun:" + JO.get("sun") + "\n";
+                            "Lux1:" + JO.get("lux1") + "\n" +
+                            "Lux2:" + JO.get("lux2") + "\n" +
+                            "Date1:" + JO.get("date1") + "\n" +
+                            "Date2:" + JO.get("date2") + "\n";
 
 
                     fweather = Utils.getInt("temperature1",JO);
                     f2weather = Utils.getInt("temperature2",JO);
-                    ddate1 = Utils.getInt("date1",JO);
-                    ddate2 = Utils.getInt("date2",JO);
-                    lux1 = Utils.getInt("lux1",JO);
-                    lux2 = Utils.getInt("lux2",JO);
 
                     dataParsed = dataParsed + singleParsed + "\n";
+
+
                 }
 
-                System.out.println(dataParsed);
+               // System.out.println(dataParsed);
 
             }
 
@@ -91,6 +94,7 @@ public class FetchPlantData extends AsyncTask<Void, Void, Void> {
         super.onPostExecute(aVoid);
         //APILookupActivity.data.setText(this.dataParsed);
         PlantTestActivity.data.setText(this.dataParsed);
+        //PlantTestActivity.name = this.name;
 
     }
 }
