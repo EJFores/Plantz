@@ -66,20 +66,17 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         googleMap = gMan;
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
-        //if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            //User has previously accepted this permission
-            if (ActivityCompat.checkSelfPermission(this,
-                    Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
-            {
-                googleMap.setMyLocationEnabled(true);
-                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME, MIN_DISTANCE, this);
-                Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-                locLatLong =  new LatLng(location.getLatitude(), location.getLongitude());
-                latitude = String.valueOf(location.getLatitude());
-                longitude = String.valueOf(location.getLongitude());
-                Log.d("locmang", "yep it got here it is returning the location of1 " + locLatLong);
-            }
-       // }
+        if (ActivityCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
+        {
+            googleMap.setMyLocationEnabled(true);
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME, MIN_DISTANCE, this);
+            Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            locLatLong =  new LatLng(location.getLatitude(), location.getLongitude());
+            latitude = String.valueOf(location.getLatitude());
+            longitude = String.valueOf(location.getLongitude());
+            Log.d("locmang", "yep it got here it is returning the location of1 " + locLatLong);
+        }
         else {
             //Not in api-23, no need to prompt
             locLatLong = new LatLng(37.7091282,-89.2206553);
