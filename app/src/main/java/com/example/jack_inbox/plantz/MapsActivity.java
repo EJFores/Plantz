@@ -37,6 +37,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public static String latitude;
 
     private GestureDetectorCompat gestureObject;
+    public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -75,7 +76,64 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         googleMap = gMan;
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
-        if (ActivityCompat.checkSelfPermission(this,
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.ACCESS_FINE_LOCATION)) {
+
+                // Show an explanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
+                new AlertDialog.Builder(this)
+                        .setTitle("Location Permission Needed")
+                        .setMessage("This app needs the Location permission, please accept to use location functionality")
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                //Prompt the user once explanation has been shown
+                                ActivityCompat.requestPermissions(MapsActivity.this,
+                                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                                        MY_PERMISSIONS_REQUEST_LOCATION );
+                            }
+                        })
+                        .create()
+                        .show();
+
+
+            } else {
+                // No explanation needed, we can request the permission.
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                        MY_PERMISSIONS_REQUEST_LOCATION );
+            }
+        }
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED){
+            googleMap.setMyLocationEnabled(true);
+            if(locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)){
+
+                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME, MIN_DISTANCE, this);
+                Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+                locLatLong =  new LatLng(location.getLatitude(), location.getLongitude());
+                latitude = String.valueOf(location.getLatitude());
+                longitude = String.valueOf(location.getLongitude());
+                Log.d("locmang", "yep it got here it is returning the location of3 " + locLatLong);
+                // googleMap.addMarker(new MarkerOptions().position(locLatLong).title("Le Title").snippet("Le Description"));
+                CameraPosition cameraPosition = new CameraPosition.Builder().target(locLatLong).zoom(12).build();
+                googleMap.animateCamera((CameraUpdateFactory.newCameraPosition(cameraPosition)));
+                Log.d("locmang", "yep it got here it is returning the location of1 " + locLatLong);
+                if(location == null){
+                    return;
+                 }
+
+            }
+
+        }
+
+        /*if (ActivityCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
         {
             googleMap.setMyLocationEnabled(true);
@@ -92,12 +150,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 Log.d("locmang", "yep it got here it is returning the location of2 " + locLatLong);
             longitude = String.valueOf(37.7091282);
             latitude = String.valueOf(-89.2206553);
-            googleMap.setMyLocationEnabled(false);
+            googleMap.setMyLocationEnabled(true);
         }
         Log.d("locmang", "yep it got here it is returning the location of3 " + locLatLong);
        // googleMap.addMarker(new MarkerOptions().position(locLatLong).title("Le Title").snippet("Le Description"));
         CameraPosition cameraPosition = new CameraPosition.Builder().target(locLatLong).zoom(12).build();
-        googleMap.animateCamera((CameraUpdateFactory.newCameraPosition(cameraPosition)));
+        googleMap.animateCamera((CameraUpdateFactory.newCameraPosition(cameraPosition)));*/
     }
 
     @Override
