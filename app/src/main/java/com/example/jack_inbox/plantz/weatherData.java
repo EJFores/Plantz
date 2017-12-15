@@ -25,6 +25,7 @@ import java.util.Date;
  * Created by Manuel on 11/7/2017.
  */
 
+
 public class weatherData extends AsyncTask<Void,Void,Void>{
     String data = "";
     String dataParsed = "";

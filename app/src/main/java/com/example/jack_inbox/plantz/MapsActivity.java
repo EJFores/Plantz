@@ -4,17 +4,26 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.*;
-import android.os.Build;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.*;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.widget.Toast;
 
-import com.google.android.gms.maps.*;
-import com.google.android.gms.maps.model.*;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, LocationListener
 {
@@ -83,7 +92,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 Log.d("locmang", "yep it got here it is returning the location of2 " + locLatLong);
             longitude = String.valueOf(37.7091282);
             latitude = String.valueOf(-89.2206553);
-            googleMap.setMyLocationEnabled(true);
+            googleMap.setMyLocationEnabled(false);
         }
         Log.d("locmang", "yep it got here it is returning the location of3 " + locLatLong);
        // googleMap.addMarker(new MarkerOptions().position(locLatLong).title("Le Title").snippet("Le Description"));
@@ -123,6 +132,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         Log.d("hello","onProviderEnabled");
         System.out.println("onProviderEnabled");
         System.out.println("privider:" + provider);
+        Toast.makeText(MapsActivity.this, "FAILED", Toast.LENGTH_LONG).show();
     }
 
     @Override
